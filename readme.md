@@ -15,6 +15,13 @@ Model (LLM).
 - Then `/bye` to exit the chat session.
 - Then `ollama serve` to start the server.
 
+## Install
+
+```bash
+# Install hto
+cargo install sollama
+```
+
 ## Building the Project
 
 To build the project, follow these steps:
