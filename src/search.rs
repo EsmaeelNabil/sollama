@@ -102,10 +102,6 @@ impl SearchEngine {
         search_pb.set_message("Processing search results...");
         let html = response.text().await?;
 
-        // Save the response for debugging
-        std::fs::write("google_response.html", &html).unwrap();
-        debug!("Saved response to google_response.html");
-
         let document = Html::parse_document(&html);
         self.extract_urls(&document)
     }
@@ -233,9 +229,6 @@ impl SearchEngine {
         let document = Html::parse_document(&html);
 
         let content = self.extract_text(&document)?;
-
-        // Save the response for debugging
-        std::fs::write("_response.html".to_string(), &html).unwrap();
 
         Ok(ScrapedContent {
             url: url.to_string(),
